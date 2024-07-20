@@ -1,3 +1,4 @@
-require ("set")
-require ("remap")
-require ("lazy_init")
+require 'set'
+require 'keymaps'
+require 'autocommands'
+require 'lazy_init'
