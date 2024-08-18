@@ -1,0 +1,32 @@
+# OS generated files
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Dependencies
+
+node_modules/
+vendor/
+
+
+# Direnv files
+.direnv
+.envrc
+
+# Editor specific files and folders
+.idea
+
+# act files
+.act*
+
+
+# General
+
+tmp/
+.tags
+.tags_swap
