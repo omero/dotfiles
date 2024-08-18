@@ -1,4 +1,5 @@
 require 'set'
 require 'keymaps'
 require 'autocommands'
+require 'filetype'
 require 'lazy_init'
