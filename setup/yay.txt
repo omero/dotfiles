@@ -1,0 +1,6 @@
+oh-my-posh
+slack-desktop
+spotify
+zoom
+google-cloud-cli
+ddev-bin

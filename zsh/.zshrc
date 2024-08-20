@@ -1,15 +1,3 @@
-# post brew config
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# brew completions
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
-
 # ssh agent to use gpg
 eval $(ssh-agent)
 if [ ! -n "$SSH_CLIENT" ]; then
@@ -28,9 +16,6 @@ fi
 # oh my posh
 eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
 
-# zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
 
 # vim / nvim aliases
 export EDITOR=nvim
@@ -51,8 +36,8 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 
 # zsh plugins
-source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # direnv
 eval "$(direnv hook zsh)"
@@ -64,14 +49,10 @@ export GOPATH="$HOME/.go"; export GOROOT="$HOME/.local/share/go"; export PATH="$
 alias ls="eza --icons --group-directories-first --time-style=long-iso --git"
 alias tree="eza --tree --icons"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
-
 # gcp
 # The next line updates PATH for the Google Cloud SDK.
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+source "/opt/google-cloud-cli/path.zsh.inc"
+source "/opt/google-cloud-cli/completion.zsh.inc"
 
 export PATH=${PATH}:${HOME}/.bin
 export PATH=${PATH}:${HOME}/.local/bin
@@ -98,5 +79,3 @@ esac
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# Lando
-export PATH="/Users/omers/.lando/bin${PATH+:$PATH}"; #landopath
