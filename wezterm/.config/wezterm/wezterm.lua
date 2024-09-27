@@ -1,5 +1,5 @@
 -- Pull in the wezterm API
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local act = wezterm.action
 
 -- This will hold the configuration.
@@ -11,21 +11,24 @@ local config = wezterm.config_builder()
 config.scrollback_lines = 3500
 
 -- Color scheme:
-config.color_scheme = 'Catppuccin Mocha (Gogh)'
+config.color_scheme = "Tokyo Night"
 --config.color_scheme = 'catppuccin-mocha'
 
 -- Background properties
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 
 -- Fonts
-config.font = wezterm.font 'MonaspiceNe Nerd Font Mono'
+config.font = wezterm.font("MonaspiceAr Nerd Font Mono")
 config.font_size = 15
+
+-- Optional: Enable using ligatures
+config.harfbuzz_features = { "calt", "liga", "dlig", "ss01" }
 
 -- Window decoration
 config.window_decorations = "RESIZE"
 
--- Remove tabs if only one 
+-- Remove tabs if only one
 config.hide_tab_bar_if_only_one_tab = true
 
 ---- Status bar
@@ -89,39 +92,39 @@ config.hyperlink_rules = wezterm.default_hyperlink_rules()
 -- as long as a full url hyperlink regex exists above this it should not match a full url to
 -- github or gitlab / bitbucket (i.e. https://gitlab.com/user/project.git is still a whole clickable url)
 table.insert(config.hyperlink_rules, {
-    regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
-    format = 'https://www.github.com/$1/$3',
+	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
+	format = "https://www.github.com/$1/$3",
 })
 
 -- Key bindings
 config.keys = {
-    { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen, },
-    { key = 'q', mods = 'ALT', action = act.QuitApplication, },
-    { key = 'o', mods = 'ALT', action = act.EmitEvent 'open-hx-with-scrollback', },
+	{ key = "Enter", mods = "ALT", action = act.ToggleFullScreen },
+	{ key = "q", mods = "ALT", action = act.QuitApplication },
+	{ key = "o", mods = "ALT", action = act.EmitEvent("open-hx-with-scrollback") },
 
-    { key = 'h', mods = 'ALT', action = act.ActivatePaneDirection 'Left', },
-    { key = 'l', mods = 'ALT', action = act.ActivatePaneDirection 'Right', },
-    { key = 'j', mods = 'ALT', action = act.ActivatePaneDirection 'Down', },
-    { key = 'k', mods = 'ALT', action = act.ActivatePaneDirection 'Up', },
+	{ key = "h", mods = "ALT", action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "ALT", action = act.ActivatePaneDirection("Right") },
+	{ key = "j", mods = "ALT", action = act.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "ALT", action = act.ActivatePaneDirection("Up") },
 
-    { key = 'h', mods = 'SHIFT|ALT', action = act.AdjustPaneSize {'Left', 4}, },
-    { key = 'l', mods = 'SHIFT|ALT', action = act.AdjustPaneSize {'Right', 4}, },
-    { key = 'j', mods = 'SHIFT|ALT', action = act.AdjustPaneSize {'Down', 4}, },
-    { key = 'k', mods = 'SHIFT|ALT', action = act.AdjustPaneSize {'Up', 4}, },
+	{ key = "h", mods = "SHIFT|ALT", action = act.AdjustPaneSize({ "Left", 4 }) },
+	{ key = "l", mods = "SHIFT|ALT", action = act.AdjustPaneSize({ "Right", 4 }) },
+	{ key = "j", mods = "SHIFT|ALT", action = act.AdjustPaneSize({ "Down", 4 }) },
+	{ key = "k", mods = "SHIFT|ALT", action = act.AdjustPaneSize({ "Up", 4 }) },
 
-    { key = 'd', mods = 'ALT', action = act.SplitVertical, },
-    { key = 'r', mods = 'ALT', action = act.SplitHorizontal, },
+	{ key = "d", mods = "ALT", action = act.SplitVertical },
+	{ key = "r", mods = "ALT", action = act.SplitHorizontal },
 
-    { key = '[', mods = 'ALT', action = act.ActivateTabRelative(-1), },
-    { key = ']', mods = 'ALT', action = act.ActivateTabRelative(1), },
+	{ key = "[", mods = "ALT", action = act.ActivateTabRelative(-1) },
+	{ key = "]", mods = "ALT", action = act.ActivateTabRelative(1) },
 
-    -- Floating panes (not implemented yet)
-    -- bind "Alt w" { ToggleFloatingPanes; }
-    -- bind "Alt e" { TogglePaneEmbedOrFloating; }
-    -- bind "Alt b" { MovePaneBackwards; }
+	-- Floating panes (not implemented yet)
+	-- bind "Alt w" { ToggleFloatingPanes; }
+	-- bind "Alt e" { TogglePaneEmbedOrFloating; }
+	-- bind "Alt b" { MovePaneBackwards; }
 
-    -- Using defaults for tabs (CMD t, CMD 1-9)
-    -- Using defaults for find (CMD f, CTRL-r to toggle case sensitivity & regex modes) 
+	-- Using defaults for tabs (CMD t, CMD 1-9)
+	-- Using defaults for find (CMD f, CTRL-r to toggle case sensitivity & regex modes)
 }
 
 -- and finally, return the configuration to wezterm

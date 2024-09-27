@@ -34,6 +34,9 @@ require('lazy').setup({
   --  This is equivalent to:
   --    require('Comment').setup({})
 
+  -- copilot
+  { 'github/copilot.vim' },
+
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
