@@ -74,7 +74,8 @@ homebrew_cask_apps:
   - font-fira-code-nerd-font
   - font-monaspace-nerd-font
   - font-sf-mono-nerd-font-ligaturized
-  - google-chrome 
+  - grammarly-desktop
+  - kitty
   - lens
   - monitorcontrol
   - ngrok
@@ -93,8 +94,7 @@ homebrew_cask_apps:
   - vlc
   - wezterm
   - zoom
-
-
+  - zed
 
 
 # See `geerlingguy.mas` role documentation for usage instructions.
