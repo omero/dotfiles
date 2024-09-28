@@ -49,14 +49,13 @@ homebrew_installed_packages:
   - tmux
   - unar 
   - wget
-  - yadm
-  - yarn
   - yazi 
   - ykman
   - yq
   - zoxide
   - zsh-autosuggestions
   - zsh-syntax-highlighting
+  - jandedobbeleer/oh-my-posh/oh-my-posh
 
 homebrew_taps:
   - shaunsingh/SFMono-Nerd-Font-Ligaturized
@@ -74,9 +73,9 @@ homebrew_cask_apps:
   - font-fira-code-nerd-font
   - font-monaspace-nerd-font
   - font-sf-mono-nerd-font-ligaturized
-  - grammarly-desktop
+#  - grammarly-desktop
   - kitty
-  - lens
+#  - lens
   - monitorcontrol
   - ngrok
   - nordvpn

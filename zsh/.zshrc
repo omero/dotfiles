@@ -26,7 +26,10 @@ if [ ! -n "$SSH_CLIENT" ]; then
 fi
 
 # oh my posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
+
+#starship
+eval "$(starship init zsh)"
 
 # zoxide
 eval "$(zoxide init zsh)"
@@ -57,21 +60,25 @@ source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.
 # direnv
 eval "$(direnv hook zsh)"
 
-# golang
-export GOPATH="$HOME/.go"; export GOROOT="$HOME/.local/share/go"; export PATH="$GOPATH/bin:$PATH"; # g-install: do NOT edit, see https://github.com/stefanmaric/g
-
 # alias exa 
 alias ls="eza --icons --group-directories-first --time-style=long-iso --git"
 alias tree="eza --tree --icons"
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+#asdf
+. "$HOME/.asdf/asdf.sh"
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+#golang
+. ~/.asdf/plugins/golang/set-env.zsh
+
 
 # gcp
 # The next line updates PATH for the Google Cloud SDK.
-source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+source "/Users/omers/.asdf/installs/gcloud/494.0.0/completion.zsh.inc"
+source "/Users/omers/.asdf/installs/gcloud/494.0.0/path.zsh.inc"
 
 export PATH=${PATH}:${HOME}/.bin
 export PATH=${PATH}:${HOME}/.local/bin
@@ -87,16 +94,6 @@ function yy() {
   fi
   rm -f -- "$tmp"
 }
-
-# pnpm
-export PNPM_HOME="/Users/omers/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # Lando
 export PATH="/Users/omers/.lando/bin${PATH+:$PATH}"; #landopath
