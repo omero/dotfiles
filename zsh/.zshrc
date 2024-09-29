@@ -52,6 +52,8 @@ setopt inc_append_history
 # autocompletion using arrow keys (based on history)
 bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
 
 # zsh plugins
 source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
