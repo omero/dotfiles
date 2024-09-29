@@ -1,6 +1,7 @@
 [user]
     name = "Omar Aguirre"
     email = "omersguchigu@gmail.com"
+	signingkey = CE8B9D85F7CA1351
 
 [branch "master"]
     remote = origin
@@ -143,3 +144,5 @@
     insteadOf = https://github.com/   
 [pull]
 	ff = only
+[commit]
+	gpgsign = true
