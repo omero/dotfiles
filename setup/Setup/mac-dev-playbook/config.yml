@@ -26,7 +26,7 @@ homebrew_installed_packages:
   - eza
   - fastfetch
   - fd
-  - ffmpegthumbnailer 
+  - ffmpegthumbnailer
   - fzf
   - gh
   - git
@@ -39,17 +39,17 @@ homebrew_installed_packages:
   - neovim
   - openssl
   - pinentry-mac
-  - poppler 
+  - poppler
   - pre-commit
   - ripgrep
   - ssh-copy-id
   - starship
-  - stow 
+  - stow
   - tldr
   - tmux
-  - unar 
+  - unar
   - wget
-  - yazi 
+  - yazi
   - ykman
   - yq
   - zoxide
@@ -59,7 +59,7 @@ homebrew_installed_packages:
 
 homebrew_taps:
   - shaunsingh/SFMono-Nerd-Font-Ligaturized
-  
+
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - altair-graphql-client
@@ -67,20 +67,23 @@ homebrew_cask_apps:
   - arc
   - cloudflare-warp
   - devtoys
-  - discord 
+  - discord
   - elgato-stream-deck
   - figma
   - font-fira-code-nerd-font
   - font-monaspace-nerd-font
   - font-sf-mono-nerd-font-ligaturized
-#  - grammarly-desktop
+  - google-chrome
+  - ghostty
+  #  - grammarly-desktop
   - kitty
-#  - lens
+  #  - lens
   - monitorcontrol
   - ngrok
   - nordvpn
   - obsidian
   - orbstack
+  - ollama
   - postman
   - raycast
   - rectangle
@@ -94,7 +97,6 @@ homebrew_cask_apps:
   - wezterm
   - zoom
   - zed
-
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
@@ -111,7 +113,8 @@ composer_packages: []
 # - name: drush
 #   state: present # present/absent, default: present
 #   version: "^8.1" # default: N/A
-gem_packages: []
+gem_packages:
+  []
   # - name: mdl
   #   state: latest # present/absent/latest, default: present
 #   version: "~> 1.15.1" # default: N/A

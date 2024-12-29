@@ -1,0 +1,11 @@
+font-family = "MonaspiceNe NFM"
+font-family-bold = "MonaspiceNe NFM Bold"
+font-family-italic = "MonaspiceNe NFM Italic"
+font-family-bold-italic = "MonaspiceNe NFM Bold Italic"
+font-size = 15
+theme = "tokyonight-storm"
+window-padding-x = 15
+window-padding-y = 15
+background-opacity = 0.9
+background-blur-radius = 20
+macos-titlebar-style = "hidden"
