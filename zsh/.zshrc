@@ -67,10 +67,10 @@ alias ls="eza --icons --group-directories-first --time-style=long-iso --git"
 alias tree="eza --tree --icons"
 
 #asdf
-. "$HOME/.asdf/asdf.sh"
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
+#
+export ASDF_DATA_DIR="/Users/omers/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+
 autoload -Uz compinit && compinit
 
 #golang
@@ -79,8 +79,18 @@ autoload -Uz compinit && compinit
 
 # gcp
 # The next line updates PATH for the Google Cloud SDK.
-source "/Users/omers/.asdf/installs/gcloud/494.0.0/completion.zsh.inc"
-source "/Users/omers/.asdf/installs/gcloud/494.0.0/path.zsh.inc"
+# Get gcloud installation path
+GCLOUD_PATH=$(asdf where gcloud 2>/dev/null)
+COMPLETION_STATUS=$?
+
+if [ $COMPLETION_STATUS -eq 0 ] && [ -n "$GCLOUD_PATH" ]; then
+  # Build the completion file path
+  source "$GCLOUD_PATH/completion.zsh.inc"
+  source "$GCLOUD_PATH/path.zsh.inc"  
+else
+  log_message "Error: gcloud is not installed via asdf"
+  log_message "Please install it using: asdf plugin add gcloud && asdf install gcloud latest"
+fi
 
 export PATH=${PATH}:${HOME}/.bin
 export PATH=${PATH}:${HOME}/.local/bin
@@ -97,5 +107,16 @@ function yy() {
   rm -f -- "$tmp"
 }
 
+alias v="open $1 -a 'Visual Studio Code'"
+
 # Lando
 export PATH="/Users/omers/.lando/bin${PATH+:$PATH}"; #landopath
+
+# pnpm
+export PNPM_HOME="/Users/omers/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+

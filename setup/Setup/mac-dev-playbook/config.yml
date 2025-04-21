@@ -64,7 +64,7 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - altair-graphql-client
   - appcleaner
-  - arc
+  - bambu-studio
   - cloudflare-warp
   - devtoys
   - discord
@@ -76,8 +76,8 @@ homebrew_cask_apps:
   - google-chrome
   - ghostty
   #  - grammarly-desktop
-  - kitty
   #  - lens
+  - mutedeck
   - monitorcontrol
   - ngrok
   - nordvpn
@@ -94,7 +94,6 @@ homebrew_cask_apps:
   - transmit
   - visual-studio-code
   - vlc
-  - wezterm
   - zoom
   - zed
 

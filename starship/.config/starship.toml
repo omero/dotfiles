@@ -1,0 +1,4 @@
+[gcloud]
+symbol = '️🇬️ '
+format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+detect_env_vars = ['GOOGLE_CLOUD_PROJECT', 'GCLOUD_PROJECT']

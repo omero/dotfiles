@@ -30,3 +30,5 @@ vendor/
 tmp/
 .tags
 .tags_swap
+
+.tool-versions
