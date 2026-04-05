@@ -32,8 +32,8 @@ fi
 eval "$(starship init zsh)"
 
 # zoxide
-eval "$(zoxide init zsh)"
-alias cd="z"
+# eval "$(zoxide init zsh)"
+# alias cd="z"
 
 # vim / nvim aliases
 export EDITOR=nvim
@@ -106,8 +106,9 @@ function yy() {
   fi
   rm -f -- "$tmp"
 }
-
-alias v="open $1 -a 'Visual Studio Code'"
+# Visual Studio Code
+alias code="open $1 -a 'Visual Studio Code'"
+alias code-insiders="open $1 -a 'Visual Studio Code - Insiders'"
 
 # Lando
 export PATH="/Users/omers/.lando/bin${PATH+:$PATH}"; #landopath
@@ -120,3 +121,11 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+
+# bun completions
+[ -s "/Users/omers/.bun/_bun" ] && source "/Users/omers/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+alias claude="/Users/omers/.claude/local/claude"
