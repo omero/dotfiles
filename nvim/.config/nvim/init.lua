@@ -1,5 +1,2 @@
-require 'set'
-require 'keymaps'
-require 'autocommands'
-require 'filetype'
-require 'lazy_init'
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
