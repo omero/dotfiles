@@ -53,26 +53,6 @@ bindkey '\e[B' history-search-forward
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 
-# gcp
-# The next line updates PATH for the Google Cloud SDK.
-# Get gcloud installation path
-GCLOUD_PATH=$(asdf where gcloud 2>/dev/null)
-COMPLETION_STATUS=$?
-
-if [ $COMPLETION_STATUS -eq 0 ] && [ -n "$GCLOUD_PATH" ]; then
-  # Build the completion file path
-  source "$GCLOUD_PATH/completion.zsh.inc"
-  source "$GCLOUD_PATH/path.zsh.inc"  
-else
-  log_message "Error: gcloud is not installed via asdf"
-  log_message "Please install it using: asdf plugin add gcloud && asdf install gcloud latest"
-fi
-
-export PATH=${PATH}:${HOME}/.bin
-export PATH=${PATH}:${HOME}/.local/bin
-
-export USE_GKE_GCLOUD_AUTH_PLUGIN=true
-
 # Visual Studio Code
 alias code="open $1 -a 'Visual Studio Code'"
 
