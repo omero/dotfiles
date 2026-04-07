@@ -1,14 +1,27 @@
 # post brew config
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# brew completions
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
-fi
+# Starship prompt
+eval "$(starship init zsh)"
+# Smart directory navigation
+eval "$(zoxide init zsh)"
+# Auto-load environment variables per directory
+eval "$(direnv hook zsh)"
+# Zsh plugins
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# vim / nvim aliases
+export EDITOR=nvim
+# Aliases
+alias ls="eza --icons"
+alias ll="eza -la --icons"
+alias tree="eza --tree --icons"
+alias vim="nvim"
+alias g="git"
+alias cd="z"
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(mise activate zsh)"
 
 # ssh agent to use gpg
 eval $(ssh-agent)
@@ -25,21 +38,6 @@ if [ ! -n "$SSH_CLIENT" ]; then
   echo UPDATESTARTUPTTY | gpg-connect-agent > /dev/null 2>&1
 fi
 
-# oh my posh
-# eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
-
-#starship
-eval "$(starship init zsh)"
-
-# zoxide
-# eval "$(zoxide init zsh)"
-# alias cd="z"
-
-# vim / nvim aliases
-export EDITOR=nvim
-alias vim="nvim"
-alias vi="nvim"
-alias oldvim="vim"
 
 # ZSH Facts
 HISTFILE=${HOME}/.zsh_history
@@ -54,28 +52,6 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
-
-# zsh plugins
-source ${HOMEBREW_PREFIX}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${HOMEBREW_PREFIX}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# alias exa 
-alias ls="eza --icons --group-directories-first --time-style=long-iso --git"
-alias tree="eza --tree --icons"
-
-#asdf
-#
-export ASDF_DATA_DIR="/Users/omers/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
-
-autoload -Uz compinit && compinit
-
-#golang
-. ~/.asdf/plugins/golang/set-env.zsh
-
 
 # gcp
 # The next line updates PATH for the Google Cloud SDK.
@@ -97,35 +73,7 @@ export PATH=${PATH}:${HOME}/.local/bin
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true
 
-# yazi 
-function yy() {
-  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-  yazi "$@" --cwd-file="$tmp"
-  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-    cd -- "$cwd"
-  fi
-  rm -f -- "$tmp"
-}
 # Visual Studio Code
 alias code="open $1 -a 'Visual Studio Code'"
-alias code-insiders="open $1 -a 'Visual Studio Code - Insiders'"
-
-# Lando
-export PATH="/Users/omers/.lando/bin${PATH+:$PATH}"; #landopath
-
-# pnpm
-export PNPM_HOME="/Users/omers/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 
-# bun completions
-[ -s "/Users/omers/.bun/_bun" ] && source "/Users/omers/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-alias claude="/Users/omers/.claude/local/claude"
