@@ -1,57 +1,38 @@
+# See https://git-scm.com/docs/git-config
+
 [user]
-    name = "Omar Aguirre"
-    email = "omersguchigu@gmail.com"
-	signingkey = CE8B9D85F7CA1351
+	name = Omar Aguirre
+	email = omersguchigu@gmail.com
 
-[branch "master"]
-    remote = origin
-    merge = refs/heads/master
+[init]
+	defaultBranch = main
 
-[color]
-    branch = always
-    diff = always
-    grep = always
-    interactive = always
-    pager = true
-    showbranch = auto
-    status = auto
-    ui = always
+[pull]
+	rebase = true            # Rebase (instead of merge) on pull
 
-[color "interactive"]
-    error = red bold
-
-[color "branch"]
-    current = yellow reverse
-    local = yellow
-    remote = green
-
-[color "diff"]
-    meta = yellow
-    frag = magenta
-    old = red
-    new = green
-    whitespace = white reverse
-
-[color "status"]
-    added = yellow
-    changed = green
-    untracked = cyan
-    branch = magenta
-
-[core]
-    pager = less -FRSX
-    whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-    excludesfile = ~/.gitignore
-	fileMode = false
+[push]
+	autoSetupRemote = true   # Automatically set upstream branch on push
 
 [diff]
-    tool = vimdiff
+	algorithm = histogram    # Clearer diffs on moved/edited lines
+	colorMoved = plain       # Highlight moved blocks in diffs
+	mnemonicPrefix = true    # More intuitive refs in diff output
 
-[difftool]
-    prompt = false
+[commit]
+	verbose = true           # Include diff comment in commit message template
 
-[merge]
-    tool = vimdiff
+[column]
+	ui = auto                # Output in columns when possible
+
+[branch]
+	sort = -committerdate    # Sort branches by most recent commit first
+
+[tag]
+	sort = -version:refname  # Sort version numbers as you would expect
+
+[rerere]
+	enabled = true           # Record and reuse conflict resolutions
+	autoupdate = true        # Apply stored conflict resolutions automatically
 
 [alias]
     # branch
@@ -67,27 +48,22 @@
     bS = show-branch -a
 
     # checkout/fetch/merge/push/rebase
-    # checkout
     co  = checkout
     co0 = checkout HEAD --
-    # fetch
     f   = fetch
     fm  = pull
     fo  = fetch origin
-    # merge
     m   = merge
-    mom = merge origin/master
-    # push
+    mom = merge origin/main
     p   = push
     pa  = push --all
     pt  = push --tags
-    # rebase
     r   = rebase
     ra  = rebase --abort
     rc  = rebase --continue
     ri  = rebase --interactive
     rs  = rebase --skip
-    rom = rebase origin/master
+    rom = rebase origin/main
 
     # commit
     c      = commit -v
@@ -103,11 +79,9 @@
     ds   = diff --staged # Diff index to HEAD
     dc   = diff --staged # Diff index to HEAD
     dh   = diff HEAD     # Diff working dir and index to HEAD
-    hub  = browse
-    hubd = compare
 
     # index
-    s  = status
+    st = status
     a  = add
     ia = add
     ir = reset
@@ -131,20 +105,3 @@
     rea = remote add
     rex = remote rm
     rem = remote rename
-
-[push]
-    default = matching
-
-; [url "git@github.com:"]
-;     insteadof = github:
-; [pull]
-;     rebase = false
-;
-; [url "git@github.com:"]
-    insteadOf = https://github.com/   
-[pull]
-	ff = only
-[commit]
-	gpgsign = false
-[init]
-	defaultBranch = main
