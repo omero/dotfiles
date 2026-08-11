@@ -27,9 +27,15 @@
 hl.unbind("SUPER + SHIFT + A")
 o.bind("SUPER + SHIFT + A", "Claude AI", { webapp = "https://claude.ai" })
 
+-- Change SUPER+SHIFT+G from Signal to Slack (web app)
+hl.unbind("SUPER + SHIFT + G")
+o.bind("SUPER + SHIFT + G", "Slack", { webapp = "https://app.slack.com/client" })
+
+-- Change SUPER+SHIFT+C from HEY Calendar to Google Calendar
+hl.unbind("SUPER + SHIFT + C")
+o.bind("SUPER + SHIFT + C", "Google Calendar", { webapp = "https://calendar.google.com" })
+
 -- Logitech MX Keys examples:
 -- o.bind("SUPER + SHIFT + S", nil, "omarchy-capture-screenshot")
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
 -- o.bind("SUPER + PERIOD", nil, "omarchy-shell shell toggle omarchy.emojis")
-
-
