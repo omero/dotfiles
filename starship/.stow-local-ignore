@@ -1,5 +1,0 @@
-# starship.toml.tpl is a source asset used by the theme-set hook
-# (.config/omarchy/hooks/theme-set.d/starship-colors) to rewrite
-# .config/starship.toml on theme change - it isn't meant to be linked
-# into $HOME itself.
-^/starship\.toml\.tpl$
