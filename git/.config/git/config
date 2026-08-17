@@ -3,6 +3,13 @@
 [user]
 	name = Omar Aguirre
 	email = omersguchigu@gmail.com
+	signingkey = EA4B9C419141F70684A4B1525C7CC5943F68B4D9
+
+[includeIf "hasconfig:remote.*.url:git@github.com:octahedroid/**"]
+	path = ~/.config/git/config-octahedroid
+
+[includeIf "hasconfig:remote.*.url:https://github.com/octahedroid/**"]
+	path = ~/.config/git/config-octahedroid
 
 [init]
 	defaultBranch = main
@@ -20,6 +27,7 @@
 
 [commit]
 	verbose = true           # Include diff comment in commit message template
+	gpgsign = true
 
 [column]
 	ui = auto                # Output in columns when possible

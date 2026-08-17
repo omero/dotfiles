@@ -2,6 +2,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "effortLevel": "medium",
   "theme": "auto",
-  "effortLevel": "medium"
+  "skipDangerousModePermissionPrompt": true
 }

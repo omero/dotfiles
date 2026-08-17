@@ -1,0 +1,6 @@
+[commit]
+	gpgsign = true
+
+[user]
+	email = omers@octahedroid.com
+	signingkey = EA4B9C419141F70684A4B1525C7CC5943F68B4D9
