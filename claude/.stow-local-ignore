@@ -1,2 +1,2 @@
-# Only settings.json is tracked here on purpose — everything else in ~/.claude
-# is runtime/session state or credentials, not config. See conversation for why.
+# Only settings.json and commands/ are tracked here on purpose — everything
+# else in ~/.claude is runtime/session state or credentials, not config.
