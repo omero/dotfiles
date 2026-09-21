@@ -11,6 +11,12 @@
 [includeIf "hasconfig:remote.*.url:https://github.com/octahedroid/**"]
 	path = ~/.config/git/config-octahedroid
 
+[includeIf "hasconfig:remote.*.url:git@github.com:octahedroid-labs/**"]
+	path = ~/.config/git/config-octahedroid
+
+[includeIf "hasconfig:remote.*.url:https://github.com/octahedroid-labs/**"]
+	path = ~/.config/git/config-octahedroid
+
 [init]
 	defaultBranch = main
 

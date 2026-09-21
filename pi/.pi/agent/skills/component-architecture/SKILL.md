@@ -35,6 +35,7 @@ Component owns:
   approved visual modes
   responsive behavior
   defaults and shared styling state
+  implementation types and defaults that callers do not need
 
 Caller owns:
   content and slot composition
@@ -77,23 +78,35 @@ type ComponentStyleTweaks = {
 };
 ```
 
+Do not retain a `styleTweaks` key with only one useful value. When a component
+has one intentional `styleTweak`, make that its implementation and remove the
+key, its default, its `data-*` attribute, and its slot selectors.
+
 Avoid arbitrary values, page-specific options, and accumulating booleans.
 
 ### Guardrail 3: root-owned visual state
 
-Resolve `styleTweaks` defaults once at the root and expose the result through
-`data-*` attributes. Slots respond via CSS selectors; do not prop-drill visual
-state merely to style descendants.
+Resolve actual `styleTweaks` defaults once at the root and expose only that
+state through `data-*` attributes. Slots respond via CSS selectors; do not
+prop-drill visual state merely to style descendants.
 
 ```tsx
-<Component
-  data-layout={layout}
-  data-surface={surface}
-  data-spacing={spacing}
-/>
+<Component data-surface={surface} data-spacing={spacing} />
 ```
 
-### Guardrail 4: resist API growth
+### Guardrail 4: hermetic and self-contained public APIs
+
+Export the component value and only types that consumers demonstrably need.
+Keep implementation unions, style-tweak types, defaults, and individual slot
+prop types module-private by default. Consumers who need to derive props can
+use `ComponentProps<typeof Component>` (including a compound slot) without
+creating a named export commitment.
+
+Before making a type public, confirm it has a direct external consumer or is a
+stable extension contract. Update internal demos and tests so they do not
+import a private implementation type.
+
+### Guardrail 5: resist API growth
 
 Before adding a prop, decide:
 
@@ -110,10 +123,12 @@ reusable need.
 ## Workflow
 
 1. Load `building-components`.
-2. Inspect the target, direct consumers, and existing design primitives.
+2. Inspect the target, direct consumers, existing design primitives, and
+   imports of the component's named types.
 3. State the component/caller ownership boundary.
-4. Propose the smallest API consistent with this policy.
-5. Implement only the requested change.
+4. Propose the smallest API consistent with this policy; remove choices that
+   have only one meaningful value.
+5. Implement only the requested change, keeping unneeded types private.
 6. Validate the smallest relevant surface.
 
 ## Response format
@@ -122,5 +137,6 @@ Include:
 
 1. The smallest useful component tree or flow diagram.
 2. **Component owns**, **Caller owns**, and **Approved styleTweaks**.
-3. Any API additions explicitly rejected, with a short reason.
-4. Changed paths and validation performed.
+3. The public API, including types intentionally kept private.
+4. Any API additions explicitly rejected, with a short reason.
+5. Changed paths and validation performed.
