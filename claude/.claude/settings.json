@@ -18,7 +18,8 @@
     ]
   },
   "enabledPlugins": {
-    "commit-commands@claude-plugins-official": true
+    "commit-commands@claude-plugins-official": true,
+    "basecamp@37signals": true
   },
   "effortLevel": "medium",
   "modelSettings": {
@@ -30,5 +31,19 @@
     }
   },
   "skipDangerousModePermissionPrompt": true,
-  "theme": "auto"
+  "theme": "auto",
+  "extraKnownMarketplaces": {
+    "mattpocock": {
+      "source": {
+        "source": "github",
+        "repo": "mattpocock/skills"
+      }
+    },
+    "37signals": {
+      "source": {
+        "source": "github",
+        "repo": "basecamp/claude-plugins"
+      }
+    }
+  }
 }
