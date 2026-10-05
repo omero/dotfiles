@@ -9,8 +9,8 @@ hl.env("GDK_SCALE", tostring(omarchy_gdk_scale))
 -- LG 4K (DP-2) - left
 hl.monitor({ output = "DP-2", mode = "3840x2160@60", position = "0x0", scale = 1.25 })
 
--- Dell AW2521HF (DP-3) - right, vertically centered against the LG, max refresh rate
-hl.monitor({ output = "DP-3", mode = "1920x1080@239.76", position = "3072x324", scale = 1.0 })
+-- Dell AW2521HF (DP-3) - disabled
+hl.monitor({ output = "DP-3", disabled = true })
 
 -- Fallback for any other/future monitor
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = omarchy_monitor_scale })
