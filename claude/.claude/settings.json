@@ -1,8 +1,8 @@
 {
-  "model": "claude-sonnet-5",
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "claude-sonnet-5-5",
   "hooks": {
     "SessionStart": [
       {
@@ -19,14 +19,16 @@
   },
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true,
-    "basecamp@37signals": true
+    "basecamp@37signals": true,
+    "cloudflare@claude-plugins-official": true,
+    "cloudflare@cloudflare": true
   },
   "effortLevel": "medium",
   "modelSettings": {
     "claude-opus-5": {
       "effortLevel": "high"
     },
-    "claude-sonnet-5": {
+    "claude-sonnet-5-5": {
       "effortLevel": "medium"
     }
   },
@@ -44,6 +46,13 @@
         "source": "github",
         "repo": "basecamp/claude-plugins"
       }
+    },
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
     }
-  }
+  },
+  "autoCompactEnabled": false
 }
