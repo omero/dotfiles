@@ -7,8 +7,21 @@
 // custom settings, run `zed: open default settings` from the
 // command palette
 {
-  "features": {
-    "edit_prediction_provider": "zed"
+  "edit_predictions": {
+    "provider": "zed"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "trust_all_worktrees": true
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
   },
   "ui_font_size": 16,
   "ui_font_family": "MonaspiceAr Nerd Font Mono",
@@ -19,8 +32,8 @@
   "buffer_font_size": 16,
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Tokyo Night Storm"
+    "light": "Omazed",
+    "dark": "Omazed"
   },
   "vim_mode": true,
   "vim": {
@@ -34,7 +47,7 @@
   // disable cursor blink
   "cursor_blink": false,
   // use relative line numbers
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   // allow cursor to reach edges of screen
   "vertical_scroll_margin": 0,
   // "gutter": {
