@@ -21,19 +21,8 @@
     "commit-commands@claude-plugins-official": true,
     "basecamp@37signals": true,
     "cloudflare@claude-plugins-official": true,
-    "cloudflare@cloudflare": true
+    "cloudflare@cloudflare": true,
   },
-  "effortLevel": "medium",
-  "modelSettings": {
-    "claude-opus-5": {
-      "effortLevel": "high"
-    },
-    "claude-sonnet-5-5": {
-      "effortLevel": "medium"
-    }
-  },
-  "skipDangerousModePermissionPrompt": true,
-  "theme": "auto",
   "extraKnownMarketplaces": {
     "mattpocock": {
       "source": {
@@ -54,5 +43,13 @@
       }
     }
   },
+  "effortLevel": "medium",
+  "modelSettings": {
+    "claude-sonnet-5-5": {
+      "effortLevel": "medium"
+    }
+  },
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "auto",
   "autoCompactEnabled": false
 }
