@@ -119,3 +119,6 @@
     rea = remote add
     rex = remote rm
     rem = remote rename
+
+[include]
+	path = ~/.config/git/config-local
