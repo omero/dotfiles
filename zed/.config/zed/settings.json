@@ -30,11 +30,7 @@
     "font_size": 16
   },
   "buffer_font_size": 16,
-  "theme": {
-    "mode": "system",
-    "light": "Omazed",
-    "dark": "Omazed"
-  },
+  "theme": "Omazed",
   "vim_mode": true,
   "vim": {
     // "always": use system clipboard when no register is specified
