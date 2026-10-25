@@ -1,0 +1,5 @@
+[tools]
+bun = "latest"
+rust = "latest"
+
+[settings.upgrade]
