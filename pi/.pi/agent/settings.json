@@ -1,0 +1,28 @@
+{
+  "lastChangelogVersion": "1.4.0",
+  "theme": "dark",
+  "packages": [
+    "npm:pi-claude-bridge",
+    "npm:pi-powerline-footer",
+    "npm:billion-context",
+    "npm:pi-web-access",
+    "npm:pi-subagents",
+    "npm:@dietrichgebert/ponytail",
+    "npm:pi-simplify"
+  ],
+  "defaultProvider": "claude-bridge",
+  "defaultModel": "claude-sonnet-5-5",
+  "hideThinkingBlock": true,
+  "enabledModels": [
+    "openai-codex/gpt-5.5",
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6.1-sol",
+    "openai-codex/gpt-6-astra",
+    "claude-bridge/claude-sonnet-5-5",
+    "claude-bridge/claude-opus-5-5",
+    "claude-bridge/claude-haiku-4-5"
+  ],
+  "defaultThinkingLevel": "medium",
+  "workingVibe": "pirate",
+  "tuiMode": "fullscreen"
+}
