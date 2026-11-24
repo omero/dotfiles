@@ -1,5 +1,6 @@
 # post brew config
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/Users/omers/.local/bin/mise activate zsh)"
 
 # Starship prompt
 eval "$(starship init zsh)"
@@ -17,9 +18,17 @@ alias tree="eza --tree --icons"
 alias vim="nvim"
 alias g="git"
 alias cd="z"
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ff="fzf --preview 'bat --style=numbers --color=always -- {}'"
+
+eff() {
+  local file
+  file=$(ff) && [[ -n "$file" ]] && "$EDITOR" -- "$file"
+}
+
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(mise activate zsh)"
+source <(fzf --zsh)
 
 # ssh agent to use gpg
 eval $(ssh-agent)
@@ -50,6 +59,7 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
+
 
 # Visual Studio Code
 alias code="open $1 -a 'Visual Studio Code'"
