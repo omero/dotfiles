@@ -23,13 +23,14 @@ This keeps runtime files, such as the private files in `~/.gnupg`, out of the re
 git clone https://github.com/omero/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 mise trust
+mise run brew   # macOS only
 mise run setup -- -n
 mise run setup
 mise install
 ```
 
 - `mise run setup -- -n` runs `stow` in simulation mode and shows conflicts.
-- On macOS, `setup` also runs `brew bundle` with the `Brewfile`. This step installs packages, also with `-n`.
+- `mise run brew` runs `brew bundle` with the `Brewfile`. It is connected to the terminal, so you can type the `sudo` password that some casks ask for.
 - `mise install` skips `lazy` tools. mise installs them on first use.
 
 ## YubiKey on a new machine
@@ -41,7 +42,7 @@ curl -fsSL https://github.com/omero.gpg | gpg --import
 gpg --card-status
 ```
 
-On macOS, the `Brewfile` installs `gnupg` and `pinentry-mac`.
+On macOS, `mise run brew` installs `gnupg` and `pinentry-mac`.
 `gnupg-macos` sets `pinentry-program` to `/opt/homebrew/bin/pinentry-mac` (Apple Silicon path).
 
 ## Switch the remote to SSH

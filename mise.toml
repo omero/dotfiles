@@ -1,5 +1,10 @@
+[tasks.brew]
+description = "Install the Brewfile packages on macOS"
+raw = true
+run = "brew bundle --file=Brewfile --verbose"
+
 [tasks.setup]
-description = "Install Brewfile on macOS and link dotfiles into $HOME with stow"
+description = "Link dotfiles into $HOME with stow"
 run = '''
 #!/usr/bin/env bash
 set -euo pipefail
@@ -7,7 +12,6 @@ packages=(agents claude git mise pi starship)
 if [ "$(uname)" = Linux ]; then
   packages+=(bash gnupg hypr)
 else
-  brew bundle --file=Brewfile
   packages+=(gnupg-macos mise-macos zsh)
 fi
 stow --no-folding --target="$HOME" "$@" "${packages[@]}"
