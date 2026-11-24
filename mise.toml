@@ -3,12 +3,12 @@ description = "Install Brewfile on macOS and link dotfiles into $HOME with stow"
 run = '''
 #!/usr/bin/env bash
 set -euo pipefail
-packages=(agents claude git gnupg mise pi starship)
+packages=(agents claude git mise pi starship)
 if [ "$(uname)" = Linux ]; then
-  packages+=(bash hypr)
+  packages+=(bash gnupg hypr)
 else
   brew bundle --file=Brewfile
-  packages+=(mise-macos zsh)
+  packages+=(gnupg-macos mise-macos zsh)
 fi
-stow --target="$HOME" "$@" "${packages[@]}"
+stow --no-folding --target="$HOME" "$@" "${packages[@]}"
 '''

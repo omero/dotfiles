@@ -1,4 +1,6 @@
 brew "stow"
+brew "gnupg"
+brew "pinentry-mac"
 brew "starship"
 brew "zoxide"
 brew "eza"
