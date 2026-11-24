@@ -25,7 +25,6 @@ if [ -z "$SSH_CLIENT" ]; then
   export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
   export GPG_TTY="$(tty)"
 fi
-. "$HOME/.cargo/env"
 
 # Hermes Agent command
 case ":$PATH:" in *":$HOME/.local/bin:"*) ;; *) export PATH="$HOME/.local/bin:$PATH" ;; esac
