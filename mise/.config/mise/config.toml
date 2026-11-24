@@ -3,7 +3,11 @@ bun = "latest"
 pnpm = "12.15.0"
 gh = "latest"
 node = "latest"
-gcloud = "latest"
+gcloud = { version = "latest", depends = ["python"] }
 terraform = "latest"
+python = "3.14"
+
+[env]
+CLOUDSDK_PYTHON = { value = "{{ tools.python.path | default(value='') }}/bin/python3", tools = true }
 
 [settings.upgrade]
