@@ -1,6 +1,9 @@
 [tools]
 bun = "latest"
 pnpm = "12.15.0"
-rust = "latest"
+gh = "latest"
+node = "latest"
+gcloud = "latest"
+terraform = "latest"
 
 [settings.upgrade]
