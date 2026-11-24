@@ -16,6 +16,7 @@ alias ls="eza --icons"
 alias ll="eza -la --icons"
 alias tree="eza --tree --icons"
 alias vim="nvim"
+alias n="nvim"
 alias g="git"
 alias cd="z"
 alias ..='cd ..'
@@ -59,9 +60,4 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
-
-
-# Visual Studio Code
-alias code="open $1 -a 'Visual Studio Code'"
-
 
