@@ -4,24 +4,13 @@
   },
   "model": "claude-sonnet-5-5",
   "hooks": {
-    "SessionStart": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash '/home/omers/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10
-          }
-        ]
-      }
-    ]
+    "SessionStart": [{"matcher":"^(startup|resume|clear|compact|fork)$","hooks":[{"type":"command","command":"bash '/home/omers/.claude/hooks/herdr-agent-state.sh' session","timeout":10}]}]
   },
   "enabledPlugins": {
     "commit-commands@claude-plugins-official": true,
     "basecamp@37signals": true,
     "cloudflare@claude-plugins-official": true,
-    "cloudflare@cloudflare": true,
+    "cloudflare@cloudflare": true
   },
   "extraKnownMarketplaces": {
     "mattpocock": {
