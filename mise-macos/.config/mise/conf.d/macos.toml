@@ -1,0 +1,4 @@
+[tools]
+claude = { version = "latest", lazy = true, auto_update = "4h", minimum_release_age = "0s" }
+codex = { version = "latest", lazy = true, auto_update = "4h", minimum_release_age = "0s" }
+pi = { version = "latest", lazy = true, auto_update = "4h", minimum_release_age = "0s" }
